@@ -15,7 +15,10 @@ class DefaultOptions
 
 	public function setOptions()
 	{
-		if ( !get_option('wpsl_post_type') ){
+        if ( !get_option('wpsl_root_location') ){
+            update_option('wpsl_root_location', RootLocation::create());
+        }
+	    if ( !get_option('wpsl_post_type') ){
 			update_option('wpsl_post_type', 'location');
 		}
 		if ( !get_option('wpsl_field_type') ){

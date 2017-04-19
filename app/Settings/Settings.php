@@ -3,6 +3,7 @@
 namespace SimpleLocator\Settings;
 
 use SimpleLocator\Repositories\FieldRepository;
+use SimpleLocator\Repositories\PostRepository;
 use SimpleLocator\Repositories\SettingsRepository;
 use SimpleLocator\Repositories\ImportRepository;
 use SimpleLocator\Repositories\SearchHistoryRepository;
@@ -59,6 +60,11 @@ class Settings
 	* Search History Repository
 	*/
 	private $search_repo;
+
+    /**
+     * Root Location
+     */
+    private $root_location;
 	
 
 	public function __construct()
@@ -67,7 +73,9 @@ class Settings
 		$this->settings_repo = new SettingsRepository;
 		$this->import_repo = new ImportRepository;
 		$this->search_repo = new SearchHistoryRepository;
+        $this->post_repo = new PostRepository;
 		$this->row = new Row;
+		$this->root_location = get_option('wpsl_root_location');
 		$this->setUnit();
 		$this->setFieldType();
 		$this->setPostType();
@@ -141,6 +149,7 @@ class Settings
 		register_setting( 'wpsimplelocator-general', 'wpsl_enable_autocomplete' );
 		register_setting( 'wpsimplelocator-general', 'wpsl_js_debug' );
 		register_setting( 'wpsimplelocator-general', 'wpsl_save_searches' );
+        register_setting( 'wpsimplelocator-general', 'wpsl_root_location' );
 		register_setting( 'wpsimplelocator-posttype', 'wpsl_post_type' );
 		register_setting( 'wpsimplelocator-posttype', 'wpsl_show_hidden' );
 		register_setting( 'wpsimplelocator-posttype', 'wpsl_hide_default_fields' );
@@ -201,5 +210,4 @@ class Settings
 		}
 		return $result;
 	}
-
 }

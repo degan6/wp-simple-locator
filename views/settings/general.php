@@ -23,6 +23,21 @@ if ( !isset($location_btn['text']) || $location_btn['text'] == "" ) $location_bt
 
 <table class="form-table">
 <tr valign="top">
+    <th scope="row"><?php _e('Root Location', 'wpsimplelocator'); ?></th>
+    <td>
+        <select name="wpsl_root_location">
+            <?php foreach ($this->post_repo->allLocations() as $location){
+                if($location->id == $this->root_location){
+                    echo '<option selected value="' . $location->id . '">' . $location->title . '</option>';
+                } else {
+                    echo '<option value="' . $location->id . '">' . $location->title . '</option>';
+                }
+            }
+            ?>
+        </select>
+    </td>
+</tr>
+<tr valign="top">
 	<th scope="row"><?php _e('Measurement Unit', 'wpsimplelocator'); ?></th>
 	<td>
 		<select name="wpsl_measurement_unit">
