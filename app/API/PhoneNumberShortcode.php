@@ -67,9 +67,7 @@ class PhoneNumberShortcode
         $this->setOptions($options);
         $this->setLocationData();
 
-        var_dump($this->location_data);
-
-        return $out;
+        return $this->location_data['phone'];
     }
 
 }
