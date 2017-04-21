@@ -46,9 +46,9 @@ class PhoneNumberShortcode
      */
     private function setOptions($options)
     {
-        $this->options = shortcode_atts(array(
-            'location' => NULL,
-        ), $options);
+        $this->options = shortcode_atts([
+            'location' => 0,
+        ], $options);
     }
 
     /**
@@ -56,7 +56,7 @@ class PhoneNumberShortcode
      */
     private function setLocationData()
     {
-        $this->location_data = $this->post_repo->getLocationData($this->options['location']);
+        $this->location_data = $this->post_repo->getLocationData($this->options);
     }
 
     /**

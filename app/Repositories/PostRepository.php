@@ -23,9 +23,20 @@ class PostRepository
 	* @param int $post_id
 	* @return array
 	*/
-	public function getLocationData($post_id)
+	//if current page has no location meta set
+        //lookup its parrent page
+        //do recursivly
+        //return first location id you find in the chain
+    //if location found doesn't have feild set
+        //return root location information
+
+
+	public function getLocationData($options)
 	{
-		$location_data['title'] = get_the_title($post_id);
+
+        $post_id = $this->getLocationIDFromPost($options);
+
+	    $location_data['title'] = get_the_title($post_id);
 		$location_data['latitude'] = get_post_meta( $post_id, get_option('wpsl_lat_field'), true );
 		$location_data['longitude'] = get_post_meta( $post_id, get_option('wpsl_lng_field'), true );
 		$location_data['address'] = get_post_meta( $post_id, 'wpsl_address', true);
@@ -84,4 +95,65 @@ class PostRepository
 		return true;
 	}
 
+    /**
+     * Find the location to return from the current post
+     * @param array $options From Shortcode, looks for locations
+     * @since 1.5.3
+     * @return int
+     */
+	private function getLocationIDFromPost($options)
+    {
+        if(!$options['location'] == 0)
+        {
+            return $options['location'];
+        }
+
+        //if current post has location, return it
+        $currentPost = get_queried_object();
+        $currentPostLocation = $this->getPostLocation($currentPost->ID);
+        if($currentPostLocation)
+        {
+            return $currentPostLocation;
+        } else {
+            //get the top parretn post in the chain and get it location data
+            $topParentPost = $this->getTopParentPost($currentPost->ID);
+            $topParentPostLocation = $this->getPostLocation($topParentPost->ID);
+            if($topParentPostLocation)
+            {
+                return $topParentPostLocation;
+            } else {
+                return get_option('wpsl_root_location');
+            }
+        }
+    }
+
+    /**
+     * Gets the top parent of a post
+     * @param post ID $post
+     * @since 1.5.3
+     * @return WP_POST
+     */
+	private function getTopParentPost($postID)
+    {
+        //have to work with ID because wordpress has no functions for objects to get parents
+        $parentPost = wp_get_post_parent_id($postID);
+        
+        if($parentPost == 0)
+        {
+            return get_post($postID);
+        }
+
+        return $this->getTopParentPost($parentPost);
+
+    }
+
+    private function getPostLocation($postID)
+    {
+        $postLocation = get_post_meta($postID, 'wpsl_location', true);
+        if(($postLocation == 0) || $postLocation == false)
+        {
+            return false;
+        }
+        return $postLocation;
+    }
 }
