@@ -56,7 +56,7 @@ class FieldRepository
 		$location_type = get_option('wpsl_post_type');
 		if ( $post_type !== $location_type ) return $fields;
 		$sl_meta = array(
-			'wpsl_address', 'wpsl_address_two', 'wpsl_city', 'wpsl_state', 'wpsl_zip', 'wpsl_country', 'wpsl_phone', 'wpsl_website'
+			'wpsl_address', 'wpsl_address_two', 'wpsl_city', 'wpsl_state', 'wpsl_zip', 'wpsl_country', 'wpsl_phone', 'wpsl_website', 'wpsl_email', 'wpsl_same_as', 'wpsl_payment_accepted', 'wpsl_logo', 'wpsl_price_range'
 		);
 		return array_unique(array_merge($fields, $sl_meta));
 	}

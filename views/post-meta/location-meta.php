@@ -47,6 +47,30 @@
 			<label for="wpsl_website"><?php _e('Website', 'wpsimplelocator'); ?></label>
 			<input type="text" name="wpsl_website" id="wpsl_website" value="<?php echo $this->meta['website']; ?>" />
 		</p>
+
+
+        <p class="half left wpsl-email-field">
+            <label for="wpsl_email"><?php _e('Email', 'wpsimplelocator'); ?></label>
+            <input type="email" name="wpsl_email" id="wpsl_email" value="<?php echo $this->meta['email']; ?>" />
+        </p>
+        <p class="half right wpsl-same-as-field">
+            <label for="wpsl_same_as"><?php _e('Same As', 'wpsimplelocator'); ?></label>
+            <input type="url" name="wpsl_same_as" id="wpsl_same_as" value="<?php echo $this->meta['same_as']; ?>" />
+        </p>
+        <p class="half left wpsl-price-range-field">
+            <label for="wpsl_price_range"><?php _e('Price Range', 'wpsimplelocator'); ?></label>
+            <input type="text" name="wpsl_price_range" id="wpsl_price_range" value="<?php echo $this->meta['price_range']; ?>" />
+        </p>
+        <p class="half right wpsl-payment-accepted-field">
+            <label for="wpsl_payment_accepted"><?php _e('Payment Accepted', 'wpsimplelocator'); ?></label>
+            <input type="text" name="wpsl_payment_accepted" id="wpsl_payment_accepted" value="<?php echo $this->meta['payment_accepted']; ?>" />
+        </p>
+        <p class="half left wpsl-payment-accepted-field">
+            <label for="wpsl_logo"><?php _e('Logo', 'wpsimplelocator'); ?></label>
+            <input type="text" name="wpsl_logo" id="wpsl_logo" value="<?php echo $this->meta['logo']; ?>" />
+        </p>
+
+
 		<hr />
 		<p class="full wpsl-additional-field">
 			<label for="wpsl_additionalinfo"><?php _e('Additional Info', 'wpsimplelocator'); ?></label>
