@@ -4,3 +4,5 @@ assets/js/wpsl-locator-ck.js
 /languages/wpsimplelocator-es_ES.po
 /vendor/*
 /.idea
+/assets/js/*
+/assets/css/*
