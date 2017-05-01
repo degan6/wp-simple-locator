@@ -69,8 +69,32 @@
             <label for="wpsl_logo"><?php _e('Logo', 'wpsimplelocator'); ?></label>
             <input type="text" name="wpsl_logo" id="wpsl_logo" value="<?php echo $this->meta['logo']; ?>" />
         </p>
+        <div class="latlng">
+            <p style="width: 33%;">
+                <span>Mon - Fri</span>
+                <label for="wpsl_hours_mf_open"><?php _e('Open', 'wpsimplelocator'); ?></label>
+                <input type="time" name="wpsl_hours_mf_open" value="<?php echo $this->meta['hours_mf_open']; ?>">
 
+                <label for="wpsl_hours_mf_close"><?php _e('Close', 'wpsimplelocator'); ?></label>
+                <input type="time" name="wpsl_hours_mf_close" value="<?php echo $this->meta['hours_mf_close']; ?>">
+            </p>
+            <p style="width: 33%">
+                <span>Saturday</span>
+                <label for="wpsl_hours_mf_open"><?php _e('Open', 'wpsimplelocator'); ?></label>
+                <input type="time" name="wpsl_hours_sat_open" value="<?php echo $this->meta['hours_sat_open']; ?>">
 
+                <label for="wpsl_hours_mf_close"><?php _e('Close', 'wpsimplelocator'); ?></label>
+                <input type="time" name="wpsl_hours_sat_close" value="<?php echo $this->meta['hours_sat_close']; ?>">
+            </p>
+            <p style="width: 33%">
+                <span>Sunday</span>
+                <label for="wpsl_hours_mf_open"><?php _e('Open', 'wpsimplelocator'); ?></label>
+                <input type="time" name="wpsl_hours_sun_open" value="<?php echo $this->meta['hours_sun_open']; ?>">
+
+                <label for="wpsl_hours_mf_close"><?php _e('Close', 'wpsimplelocator'); ?></label>
+                <input type="time" name="wpsl_hours_sun_close" value="<?php echo $this->meta['hours_sun_close']; ?>">
+            </p>
+        </div>
 		<hr />
 		<p class="full wpsl-additional-field">
 			<label for="wpsl_additionalinfo"><?php _e('Additional Info', 'wpsimplelocator'); ?></label>

@@ -46,6 +46,12 @@ class MetaFields
             'payment_accepted' => 'wpsl_payment_accepted',
 			'logo' => 'wpsl_logo',
 			'price_range' => 'wpsl_price_range',
+            'hours_mf_open' => 'wpsl_hours_mf_open',
+            'hours_mf_close' => 'wpsl_hours_mf_close',
+            'hours_sat_open' => 'wpsl_hours_sat_open',
+            'hours_sat_close' => 'wpsl_hours_sat_close',
+            'hours_sun_open' => 'wpsl_hours_sun_open',
+            'hours_sun_close' => 'wpsl_hours_sun_close',
 			'additionalinfo' => 'wpsl_additionalinfo',
 			'mappinrelocated' => 'wpsl_custom_geo'
 		);

@@ -86,6 +86,12 @@ class Singular
             $this->location_data['payment_accepted'] = get_post_meta( get_the_id(), 'wpsl_payment_accepted', true);
             $this->location_data['logo'] = get_post_meta( get_the_id(), 'logo', true);
             $this->location_data['price_range'] = get_post_meta( get_the_id(), 'price_range', true);
+            $this->location_data['hours_mf_open'] = get_post_meta( get_the_id(), 'wpsl_hours_mf_open', true);
+            $this->location_data['hours_mf_close'] = get_post_meta( get_the_id(), 'wpsl_hours_mf_close', true);
+            $this->location_data['hours_sat_open'] = get_post_meta( get_the_id(), 'wpsl_hours_sat_open', true);
+            $this->location_data['hours_sat_close'] = get_post_meta( get_the_id(), 'wpsl_hours_sat_close', true);
+            $this->location_data['hours_sun_open'] = get_post_meta( get_the_id(), 'wpsl_hours_sun_open', true);
+            $this->location_data['hours_sun_close'] = get_post_meta( get_the_id(), 'wpsl_hours_sun_close', true);
 			$this->location_data['additionalinfo'] = get_post_meta( get_the_id(), 'wpsl_additionalinfo', true);
 		}
 	}
