@@ -154,7 +154,7 @@ class PostRepository
     {
         $this_post_meta = get_post_meta($post_id, $meta_name, true);
         if($this_post_meta == '') {
-            return  get_post_meta(get_option('wpsl_root_location', $meta_name, true));
+            return  get_post_meta(get_option('wpsl_root_location'), $meta_name, true);
         }
 
         return $this_post_meta;
