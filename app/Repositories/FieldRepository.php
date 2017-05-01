@@ -74,7 +74,8 @@ class FieldRepository
             'wpsl_hours_sat_open',
             'wpsl_hours_sat_close',
             'wpsl_hours_sun_open',
-            'wpsl_hours_sun_close'
+            'wpsl_hours_sun_close',
+            'wpsl_areas_severed'
 		);
 		return array_unique(array_merge($fields, $sl_meta));
 	}

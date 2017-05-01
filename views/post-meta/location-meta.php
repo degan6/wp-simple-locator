@@ -69,6 +69,10 @@
             <label for="wpsl_logo"><?php _e('Logo', 'wpsimplelocator'); ?></label>
             <input type="text" name="wpsl_logo" id="wpsl_logo" value="<?php echo $this->meta['logo']; ?>" />
         </p>
+        <p class="half right wpsl-areas-severed-field">
+            <label for="wpsl_areas_severed"><?php _e('Areas Severed', 'wpsimplelocator'); ?></label>
+            <input type="text" name="wpsl_areas_severed" id="wpsl_areas_severed" value="<?php echo $this->meta['areas_severed']; ?>" />
+        </p>
         <div class="latlng">
             <p style="width: 33%;">
                 <span>Mon - Fri</span>
