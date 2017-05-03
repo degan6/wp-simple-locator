@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace SimpleLocator\WPData;
 
@@ -12,6 +12,11 @@ class MetaFields
 	* Meta Data
 	*/
 	private $meta;
+
+    /**
+     * Testimonials array
+     */
+    private $testimonials;
 
 	/**
 	* Fields
@@ -91,6 +96,10 @@ class MetaFields
 		{
 			$this->meta[$key] = get_post_meta( $post->ID, $field, true );
 		}
+
+		$t = new \SimpleLocator\Integrations\Testimonials\Testimonials();
+		$this->testimonials = $t->getTestimonialsForLocation($post->ID);
+
 	}
 
 	/**

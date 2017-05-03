@@ -104,6 +104,17 @@
 			<label for="wpsl_additionalinfo"><?php _e('Additional Info', 'wpsimplelocator'); ?></label>
 			<textarea name="wpsl_additionalinfo" id="wpsl_additionalinfo"><?php echo $this->meta['additionalinfo']; ?></textarea>
 		</p>
+        <h3>Testimonials</h3>
+            <?php
+                foreach ($this->testimonials as $testimonial){
+                  echo '<div class="latlng testimonial">';
+                  echo '<h4 style="padding: 0px; margin: 0px;">' . $testimonial->post_title . '</h4>';
+                  echo '<p style="padding-top: 4px; margin-top: 0px; float: none;">' . get_post_meta($testimonial->ID, 'testimonial_text', true) . '</p>';
+                  echo '<p style="float: none;"> Rating: ' . get_post_meta($testimonial->ID, 'rating', true) . '</p>';
+                  echo '<a style="float: none;" target="_blank" href="' . get_edit_post_link($testimonial->ID) . '">Edit Testimonial</a>';
+                  echo '</div>';
+                }
+            ?>
 	</div>
 	<input type="hidden" name="wpsl_custom_geo" id="wpsl_custom_geo" value="<?php echo $this->meta['mappinrelocated']; ?>">
 </div>
