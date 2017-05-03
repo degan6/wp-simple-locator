@@ -110,7 +110,14 @@
                   echo '<div class="latlng testimonial">';
                   echo '<h4 style="padding: 0px; margin: 0px;">' . $testimonial->post_title . '</h4>';
                   echo '<p style="padding-top: 4px; margin-top: 0px; float: none;">' . get_post_meta($testimonial->ID, 'testimonial_text', true) . '</p>';
-                  echo '<p style="float: none;"> Rating: ' . get_post_meta($testimonial->ID, 'rating', true) . '</p>';
+
+                  $rating = get_post_meta($testimonial->ID, 'rating', true);
+                  if(!$rating == ''){
+                      echo '<p style="float: none;"> Rating: ' . $rating . '</p>';
+                  } else {
+                      echo '<p style="float: none;"> Rating: Not Selected</p>';
+                  }
+
                   echo '<a style="float: none;" target="_blank" href="' . get_edit_post_link($testimonial->ID) . '">Edit Testimonial</a>';
                   echo '</div>';
                 }
