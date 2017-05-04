@@ -29,11 +29,19 @@ class Bootstrap
 		new \SimpleLocator\WPData\LocationPicker;
 		new \SimpleLocator\WPData\UploadFilter;
 		new \SimpleLocator\Settings\Settings;
+
 		new \SimpleLocator\API\FormShortcode;
 		new \SimpleLocator\API\SingleLocationShortcode;
 		new \SimpleLocator\API\AllLocationsShortcode;
 		new \SimpleLocator\API\PhoneNumberShortcode;
         new \SimpleLocator\API\WebsiteShortcode;
+        new \SimpleLocator\API\LogoShortcode;
+        new \SimpleLocator\API\AreasServeredShortcode;
+        new \SimpleLocator\API\PriceRangeShortcode;
+        new \SimpleLocator\API\SameAsShortcode;
+        new \SimpleLocator\API\EmailShortcode;
+        new \SimpleLocator\API\PaymentAcceptedShortcode;
+
 		new \SimpleLocator\Post\Singular;
 		new \SimpleLocator\Integrations\IntegrationFactory;
 		add_action( 'widgets_init', array($this, 'formWidget'));

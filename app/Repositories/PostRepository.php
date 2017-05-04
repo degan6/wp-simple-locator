@@ -37,6 +37,19 @@ class PostRepository
         $location_data['zip'] = $this->getMetaRecursive($post_id, 'wpsl_zip');
         $location_data['phone'] = $this->getMetaRecursive($post_id, 'wpsl_phone');
         $location_data['website'] = $this->getMetaRecursive($post_id, 'wpsl_website');
+        $location_data['same_as'] = $this->getMetaRecursive($post_id, 'wpsl_same_as');
+        $location_data['price_range'] = $this->getMetaRecursive($post_id, 'wpsl_price_range');
+        $location_data['payment_accepted'] = $this->getMetaRecursive($post_id, 'wpsl_payment_accepted');
+        $location_data['logo'] = $this->getMetaRecursive($post_id, 'wpsl_logo');
+        $location_data['areas_severed'] = $this->getMetaRecursive($post_id, 'wpsl_areas_severed');
+        $location_data['email'] = $this->getMetaRecursive($post_id, 'wpsl_email');
+        $location_data['phone_number'] = $this->getMetaRecursive($post_id, 'wpsl_phone_number');
+        $location_data['hours_mf_open'] = $this->getMetaRecursive($post_id, 'wpsl_hours_mf_open');
+        $location_data['hours_mf_close'] = $this->getMetaRecursive($post_id, 'wpsl_hours_mf_close');
+        $location_data['hours_sat_open'] = $this->getMetaRecursive($post_id, 'wpsl_hours_sat_open');
+        $location_data['hours_sat_close'] = $this->getMetaRecursive($post_id, 'wpsl_hours_sat_close');
+        $location_data['hours_sun_open'] = $this->getMetaRecursive($post_id, 'wpsl_hours_sun_open');
+        $location_data['hours_sun_close'] = $this->getMetaRecursive($post_id, 'wpsl_hours_sun_close');
         $location_data['additionalinfo'] = $this->getMetaRecursive($post_id, 'wpsl_additionalinfo');
 
         return $location_data;
