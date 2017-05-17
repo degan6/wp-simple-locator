@@ -1,7 +1,8 @@
-<?php 
+<?php
 
 namespace SimpleLocator\Events;
 
+use SimpleLocator\Listeners\addJsonLDToPage;
 use SimpleLocator\Listeners\AJAXLocationSearch;
 use SimpleLocator\Listeners\GenerateAndSendNonce;
 use SimpleLocator\Listeners\LocationSearch;
@@ -25,6 +26,9 @@ class RegisterPublicEvents
 		// Non-AJAX Search Form
 		add_action( 'admin_post_locatorsearch', array($this, 'searchWasPerformed' ));
 		add_action( 'admin_post_nopriv_locatorsearch', 'searchWasPerformed' );
+
+		//add json-ld data to header
+        add_action( 'wp_head' , array($this, 'pageWasLoaded'));
 	}
 
 	/**
@@ -50,5 +54,10 @@ class RegisterPublicEvents
 	{
 		new LocationSearch;
 	}
+
+	public function pageWasLoaded()
+    {
+        new addJsonLDToPage;
+    }
 
 }

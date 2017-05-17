@@ -28,10 +28,12 @@ class PostRepository
 
         $post_id = $this->getLocationIDFromPost($options);
 
+        $location_data['id'] = $post_id;
         $location_data['title'] = $this->getTitleRecursive($post_id);
         $location_data['latitude'] = $this->getMetaRecursive($post_id, get_option('wpsl_lat_field'));
         $location_data['longitude'] = $this->getMetaRecursive($post_id, get_option('wpsl_lng_field'));
         $location_data['address'] = $this->getMetaRecursive($post_id, 'wpsl_address');
+        $location_data['address_two'] = $this->getMetaRecursive($post_id, 'wpsl_address_two');
         $location_data['city'] = $this->getMetaRecursive($post_id, 'wpsl_city');
         $location_data['state'] = $this->getMetaRecursive($post_id, 'wpsl_state');
         $location_data['zip'] = $this->getMetaRecursive($post_id, 'wpsl_zip');
