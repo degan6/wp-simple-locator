@@ -159,3 +159,12 @@ if ( !isset($location_btn['text']) || $location_btn['text'] == "" ) $location_bt
 		</label>
 	</td>
 </tr>
+<tr valign="top">
+	<th scope="row"><?php _e('Enable Testimonials/Reviews', 'wpsimplelocator'); ?></th>
+	<td>
+		<label>
+			<input type="checkbox" value="true" name="wpsl_enable_testimonials" <?php if ( get_option('wpsl_enable_testimonials') == 'true') echo 'checked'; ?> />
+			<?php _e('Enable Testimonials/Reviews in JSON+LD', 'wpsimplelocator'); ?>
+		</label>
+	</td>
+</tr>
