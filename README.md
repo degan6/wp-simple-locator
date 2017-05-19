@@ -1,41 +1,66 @@
-# Simple Locator for WordPress
+# Tech2u Locations Plugin
 
 
 ## Overview
 
-Simple locator is ideal for developers who are looking for a way to implement location search for any post type within WordPress. Simple locator is different in that it allows the selection of any existing custom fields for use as the geocoded data sources. If there are no existing data sources, the plugin ships with a "location" post type with fields ready to go.
+This plugin is designed to create locations within wordpress using a custom post type and create pages that use 
+shortcodes to locize contact information
 
-Best suited for WordPress developers looking for a customizable way of adding location search.
+This plugin was created from  [locatewp.com](http://locatewp.com).
 
-Learn more at [locatewp.com](http://locatewp.com) and download from the [WordPress Plugin Repository](https://wordpress.org/plugins/simple-locator/).
+#### Page and Location inheritance
+
+This plugin is designed to be used with a site that pages and subpages for each location. 
+
+Pages are assigned a location and when short codes like ````[wp_simple_locator_phone]```` is placed on the page it will 
+display the assigned location's phone number. 
+
+Subpages take the location of the top parent, if no location is assigned in chain the root location is used.
+
+If a page has a location with  missing information (such as the phone number) the phone number from the root location 
+is used.
+
+###Testimonials
+
+This plugin links to the testimonials plugin installed on the Tech2u Site. When creating a testimonials you must select 
+a location to associate the testimonial with.
+
+Associated testimonials for the location will display in location editor.
+
+###Json-LD
+This plugin implements schema.org json-ld data in the header on all front end pages bases on the pages parent or location 
+set on the page.
 
 #### Requirements
 
 Simple Locator requires WordPress version 3.8+ and PHP version 5.4+. Simple Locator version 1.1.5 (no longer maintained) is compatible with PHP version 5.3.2+.
 
 
-#### Demo 
-[View the Demo](http://locatewp.com)
-
-![Screenshot](https://raw.githubusercontent.com/kylephillips/wp-simple-locator/master/assets/images/screenshot-2.png)
-
-
-#### Installation - from the WordPress Repository
-1. Upload simple-locator to the wp-content/plugins/ directory
-2. Activate the plugin through the Plugins menu in WordPress
-3. Click on the Locations Menu item to begin adding locations.
-4. To change the post type, geocoded fields, or map styles, visit Settings > Simple Locator
-
-#### Installation - from the GitHub Project
-1. cd into the wp-content/plugins directory
-2. Clone the project: ```git clone https://github.com/kylephillips/wp-simple-locator.git simple-locator```
-3. ```cd``` into the ```simple-locator``` directory and run ```composer install``` to download & install the plugin dependencies. [More on composer](https://getcomposer.org)
-4. Activate the plugin through the Plugins menu in WordPress
-
-
 #### Usage
 To display the locator, include the shortcode ```[wp_simple_locator]```. See available options and customization on the [plugin website](http://locatewp.com)
 
+###Tech2u Shortcodes
+
+#####Phone Numbers
+```[wp_simple_locator_phone_number]```
+#####Website
+```[wp_simple_locator_website]```
+#####Payments Accepted
+```[wp_simple_locator_payments_accepted]```
+#####Logo
+```[wp_simple_locator_logo]```
+#####SameAs
+```[wp_simple_locator_same_as]```
+#####Price Range
+```[wp_simple_locator_price_range]```
+#####Email
+```[wp_simple_locator_email]```
+#####Areas Served
+```[wp_simple_locator_areas_served]```
+#####Address
+```[wp_simple_locator_address]```
+#####Hours
+```[wp_simple_locator_hours]```
 
 #### Filters
 Full form output and query customization is available through the plugin filters. See the [plugin website](http://locatewp.com) for full examples and documentation. By using the various filters, it is possible to add a fully-customized search form, using any number of custom criteria.
@@ -66,3 +91,11 @@ Customize JOINS in the search query.
 
 ```simple_locator_sql_where($sql)```  
 Customize the WHERE clauses in the search query.
+
+
+###Todo
+
+- [] Hours shortcode
+- [] Address shortcode
+- [] Test shortcodes in vc
+ 
