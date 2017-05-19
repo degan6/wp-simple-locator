@@ -40,6 +40,11 @@ class addJsonLDToPage
 
     private function getReviews()
     {
+        if (\get_option('wpsl_enable_testimonials') == 'false')
+        {
+            return false;
+        }
+
         if (!$this->isPlugin('tmls_testimonials/testimonials.php')) {
             return false;
         }
