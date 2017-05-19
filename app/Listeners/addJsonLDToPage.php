@@ -45,7 +45,13 @@ class addJsonLDToPage
             return false;
         }
 
-        if (!$this->isPlugin('tmls_testimonials/testimonials.php')) {
+        if (!$this->isPlugin('tmls_testimonials/testimonials.php'))
+        {
+            return false;
+        }
+
+        if(count($this->testimonials) == 0)
+        {
             return false;
         }
 
