@@ -15,9 +15,6 @@ class DefaultOptions
 
 	public function setOptions()
 	{
-        if ( !get_option('wpsl_root_location') ){
-            update_option('wpsl_root_location', RootLocation::create());
-        }
 	    if ( !get_option('wpsl_post_type') ){
 			update_option('wpsl_post_type', 'location');
 		}
@@ -57,6 +54,9 @@ class DefaultOptions
 		if ( !get_option('wpsl_measurement_unit') ){
 			update_option('wpsl_measurement_unit', 'miles');
 		}
+        if ( !get_option('wpsl_root_location') ){
+            update_option('wpsl_root_location', RootLocation::create());
+        }
 		if ( !get_option('wpsl_geo_button') ){
 			update_option('wpsl_geo_button', array(
 				'enabled' => '',

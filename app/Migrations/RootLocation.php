@@ -12,7 +12,7 @@ class RootLocation
      */
     public static function create()
     {
-        return wp_create_post([
+        return \wp_insert_post([
             'post_author' => wp_get_current_user()->id,
             'post_title' => __('Root Post', 'wpsimplelocator'),
             'post_status' => 'publish',
