@@ -10,9 +10,8 @@ class addJsonLDToPage
     private $postRepo;
     private $locationData;
     private $testimonials;
-    private $aggregateRating;
+    private $locationArrayLD;
 
-    private $jsonStr;
 
     public function __construct()
     {
@@ -24,6 +23,7 @@ class addJsonLDToPage
 
 
         $this->generateJsonLD();
+        $this->getReviews();
         $this->renderView();
     }
 
@@ -40,8 +40,11 @@ class addJsonLDToPage
 
     private function getReviews()
     {
+        if (!$this->isPlugin('tmls_testimonials/testimonials.php')) {
+            return false;
+        }
+
         $totalRatingPoints = 0;
-        $ratingVales = [];
         $reviews = [];
 
         foreach ($this->testimonials as $key => $testimonial) {
@@ -50,7 +53,16 @@ class addJsonLDToPage
 
             $reviews[] = [
                 '@type' => 'Review',
-                'author' => $testimonial->post_title,
+                'author' => [
+                    '@type' => 'Person',
+                    'name' => $testimonial->post_title,
+                    'image' => $this->getImage($testimonial->ID),
+                    'brand' => [
+                        '@type' => 'Organization',
+                        'name'  => get_post_meta($testimonial->ID, 'company', true),
+                        'url'   => get_post_meta($testimonial->ID, 'company_website', true),
+                    ],
+                ],
                 'datePublished' => $testimonial->post_date_gmt,
                 'description' => get_post_meta($testimonial->ID, 'testimonial_text', true),
                 'reviewRating' => [
@@ -61,9 +73,15 @@ class addJsonLDToPage
                 ],
             ];
         }
-        $this->aggregateRating =round($totalRatingPoints / count($this->testimonials),2);
+        $this->locationArrayLD['aggregateRating'] = [
+            '@type' => 'AggregateRating',
+            'ratingValue' => round($totalRatingPoints / count($this->testimonials), 2),
+            'reviewCount' => count($this->testimonials),
+        ];
 
-        return $reviews;
+        $this->locationArrayLD['review'] = $reviews;
+
+        return $this->locationArrayLD;
     }
 
     /**
@@ -93,18 +111,18 @@ class addJsonLDToPage
         }
     }
 
-    public function getImage()
+    public function getImage($postID)
     {
-        $thumb_url_array = wp_get_attachment_image_src($this->locationData['id'], 'thumbnail-size', true);
+        $thumb_url_array = wp_get_attachment_image_src($this->locationData[$postID], 'thumbnail-size', true);
         return $thumb_url_array[0];
     }
 
     private function generateJsonLD()
     {
-        $locationArrayLD = [
+        $this->locationArrayLD = [
           '@id' => '',
           '@context' => 'http://schema.org',
-          '@type' => '@LocalBusiness',
+          '@type' => 'LocalBusiness',
           'name' => $this->locationData['title'],
           'url' => $this->locationData['website'],
           'sameAs' => $this->locationData['same_as'],
@@ -121,25 +139,24 @@ class addJsonLDToPage
           'paymentsAccepted' => $this->locationData['payment_accepted'],
           'logo' => $this->locationData['logo'],
           'areasServered' => $this->locationData['areas_severed'],
-          'image' => $this->getImage(),
-          'review' => $this->getReviews(),
-          'aggregateRating' => [
-                '@type' => 'AggregateRating',
-                'ratingValue' => $this->aggregateRating,
-                'reviewCount' => count($this->testimonials),
-          ],
+          'image' => $this->getImage($this->locationData['id']),
           'openinghours' => 'mo-fr,sa,su ' . $this->locationData['hours_mf_open'] . '-' . $this->locationData['hours_mf_close'] . ','
                                            . $this->locationData['hours_sat_open'] . '-' . $this->locationData['hours_sat_open'] . ','
                                            . $this->locationData['hours_sun_open'] . '-' . $this->locationData['hours_sun_close'],
         ];
+    }
 
-        $this->jsonStr = '<script type="application/ld+json">';
-        $this->jsonStr .= json_encode($locationArrayLD);
-        $this->jsonStr .= '</script>';
+    private function isPlugin($pluginPath)
+    {
+        return in_array( $pluginPath, apply_filters( 'active_plugins', get_option( 'active_plugins' )));
     }
 
     private function renderView()
     {
-        echo $this->jsonStr;
+        $jsonStr = '<script type="application/ld+json">';
+        $jsonStr .= json_encode($this->locationArrayLD);
+        $jsonStr .= '</script>';
+        echo $jsonStr;
     }
+
 }
