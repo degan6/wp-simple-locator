@@ -3,5 +3,5 @@
 /languages/wpsimplelocator-es_ES.po
 /vendor/*
 /.idea
-assets/js/*
-assets/css/*
+/assets/css/
+assets/js/
