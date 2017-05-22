@@ -53,6 +53,10 @@ class PostRepository
         $location_data['hours_sun_open'] = $this->getMetaRecursive($post_id, 'wpsl_hours_sun_open');
         $location_data['hours_sun_close'] = $this->getMetaRecursive($post_id, 'wpsl_hours_sun_close');
         $location_data['additionalinfo'] = $this->getMetaRecursive($post_id, 'wpsl_additionalinfo');
+        $location_data['hours_mf_is_closed'] = $this->getMetaRecursive($post_id, 'wpsl_hours_mf_is_closed');
+        $location_data['hours_sat_is_closed'] = $this->getMetaRecursive($post_id, 'wpsl_hours_sat_is_closed');
+        $location_data['hours_sun_is_closed'] = $this->getMetaRecursive($post_id, 'wpsl_hours_sun_is_closed');
+
 
         return $location_data;
     }

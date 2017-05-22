@@ -41,6 +41,7 @@ class Bootstrap
         new \SimpleLocator\API\SameAsShortcode;
         new \SimpleLocator\API\EmailShortcode;
         new \SimpleLocator\API\PaymentAcceptedShortcode;
+        new \SimpleLocator\API\HoursShortcode;
 
 		new \SimpleLocator\Post\Singular;
 		new \SimpleLocator\Integrations\IntegrationFactory;
