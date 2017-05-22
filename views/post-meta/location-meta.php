@@ -76,6 +76,11 @@
         <div class="latlng">
             <p style="width: 33%;">
                 <span>Mon - Fri</span>
+                <select style="margin-top: 5px; margin-bottom: 5px;" name="wpsl_hours_mf_is_closed">
+                    <option value="0">Open</option>
+                    <option value="1" <?php if($this->meta['hours_mf_is_closed']) { echo "selected"; } ?> >Closed</option>
+                </select>
+
                 <label for="wpsl_hours_mf_open"><?php _e('Open', 'wpsimplelocator'); ?></label>
                 <input type="time" name="wpsl_hours_mf_open" value="<?php echo $this->meta['hours_mf_open']; ?>">
 
@@ -84,6 +89,12 @@
             </p>
             <p style="width: 33%">
                 <span>Saturday</span>
+
+                <select style="margin-top: 5px; margin-bottom: 5px;" name="wpsl_hours_sat_is_closed">
+                    <option value="0">Open</option>
+                    <option value="1" <?php if($this->meta['hours_sat_is_closed']) { echo "selected"; } ?> >Closed</option>
+                </select>
+
                 <label for="wpsl_hours_mf_open"><?php _e('Open', 'wpsimplelocator'); ?></label>
                 <input type="time" name="wpsl_hours_sat_open" value="<?php echo $this->meta['hours_sat_open']; ?>">
 
@@ -92,6 +103,10 @@
             </p>
             <p style="width: 33%">
                 <span>Sunday</span>
+                <select style="margin-top: 5px; margin-bottom: 5px;" name="wpsl_hours_sun_is_closed">
+                    <option value="0">Open</option>
+                    <option value="1" <?php if($this->meta['hours_sun_is_closed']) { echo "selected"; } ?> >Closed</option>
+                </select>
                 <label for="wpsl_hours_mf_open"><?php _e('Open', 'wpsimplelocator'); ?></label>
                 <input type="time" name="wpsl_hours_sun_open" value="<?php echo $this->meta['hours_sun_open']; ?>">
 
@@ -106,8 +121,7 @@
 		</p>
 
             <?php
-            if (get_option('wpsl_enable_testimonials') == 'true'){
-                ?>
+            if (get_option('wpsl_enable_testimonials') == 'true'){ ?>
                 <h3>Testimonials</h3>
                 <?php
                 foreach ($this->testimonials as $testimonial){

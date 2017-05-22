@@ -94,6 +94,9 @@ class Singular
             $this->location_data['hours_sun_close'] = get_post_meta( get_the_id(), 'wpsl_hours_sun_close', true);
 			$this->location_data['areas_severed'] = get_post_meta( get_the_id(), 'wpsl_areas_severed', true);
             $this->location_data['additionalinfo'] = get_post_meta( get_the_id(), 'wpsl_additionalinfo', true);
+            $this->location_data['hours_sat_is_closed'] = get_post_meta(get_the_id(), 'wpsl_hours_sat_is_closed', true);
+            $this->location_data['hours_mf_is_closed'] = get_post_meta(get_the_id(), 'wpsl_hours_mf_is_closed', true);
+            $this->location_data['hours_sun_is_closed'] = get_post_meta(get_the_id(), 'wpsl_hours_sun_is_closed', true);
 		}
 	}
 

@@ -75,7 +75,10 @@ class FieldRepository
             'wpsl_hours_sat_close',
             'wpsl_hours_sun_open',
             'wpsl_hours_sun_close',
-            'wpsl_areas_severed'
+            'wpsl_areas_severed',
+            'wpsl_hours_mf_is_closed',
+            'wpsl_hours_sun_is_closed',
+            'wpsl_hours_sat_is_closed'
 		);
 		return array_unique(array_merge($fields, $sl_meta));
 	}

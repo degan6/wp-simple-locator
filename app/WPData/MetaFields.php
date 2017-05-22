@@ -59,7 +59,10 @@ class MetaFields
             'hours_sun_close' => 'wpsl_hours_sun_close',
 			'areas_severed' => 'wpsl_areas_severed',
 			'additionalinfo' => 'wpsl_additionalinfo',
-			'mappinrelocated' => 'wpsl_custom_geo'
+			'mappinrelocated' => 'wpsl_custom_geo',
+            'hours_mf_is_closed' => 'wpsl_hours_mf_is_closed',
+            'hours_sat_is_closed' => 'wpsl_hours_sat_is_closed',
+            'hours_sun_is_closed' => 'wpsl_hours_sun_is_closed'
 		);
 	}
 
