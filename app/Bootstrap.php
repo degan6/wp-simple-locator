@@ -43,6 +43,8 @@ class Bootstrap
         new \SimpleLocator\API\PaymentAcceptedShortcode;
         new \SimpleLocator\API\HoursShortcode;
         new \SimpleLocator\API\AddressShortcode;
+        new \SimpleLocator\API\LongitudeShortcode;
+        new \SimpleLocator\API\LatitudeShortcode;
 
 		new \SimpleLocator\Post\Singular;
 		new \SimpleLocator\Integrations\IntegrationFactory;
