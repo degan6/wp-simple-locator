@@ -68,32 +68,32 @@ class HoursShortcode
         $this->setOptions($options);
         $this->setLocationData();
 
-        $rv =  '<p>' . $this->location_data['title'] . '</p>';
-        $rv .= '<ul style="list-style-type: none;">';
+        $rv =  '<p class="sl-hours-label">' . $this->location_data['title'] . ' Store Hours</p>';
+        $rv .= '<ul class="sl-hours-list" ">';
 
         if (!$this->location_data['hours_mf_is_closed'])
         {
-            $rv .= '<li class="no-margin" >M-F ' . date("g:i a", strtotime($this->location_data['hours_mf_open'])) . ' - ' .
-                date("g:i a", strtotime($this->location_data['hours_mf_close'])) . '</li>';
+            $rv .= '<li class="sl-hours" >M-F <strong>' . date("g:i a", strtotime($this->location_data['hours_mf_open'])) . ' - ' .
+                date("g:i a", strtotime($this->location_data['hours_mf_close'])) . '</strong></li>';
         } else {
-            $rv .= '<li class="no-margin" >M-F Closed';
+            $rv .= '<li class="sl-hours" >M-F <strong>Closed</strong>';
         }
 
         if (!$this->location_data['hours_sat_is_closed'])
         {
-            $rv .= '<li class="no-margin"> Sat ' . date("g:i a", strtotime($this->location_data['hours_sat_open'])) . ' - ' .
-                date("g:i a", strtotime($this->location_data['hours_sat_close'])) . '</li>';
+            $rv .= '<li class="sl-hours"> Sat <strong>' . date("g:i a", strtotime($this->location_data['hours_sat_open'])) . ' - ' .
+                date("g:i a", strtotime($this->location_data['hours_sat_close'])) . '</strong></li>';
         } else {
-            $rv .= '<li class="no-margin"> Sat Closed';
+            $rv .= '<li class="sl-hours"> Sat <strong>Closed</strong>';
         }
 
 
         if (!$this->location_data['hours_sun_is_closed'])
         {
-            $rv .= '<li class="no-margin"> Sun ' . date("g:i a", strtotime($this->location_data['hours_sun_open'])) . ' - ' .
-                date("g:i a", strtotime($this->location_data['hours_sun_close'])) . '</li>';
+            $rv .= '<li class="sl-hours"> Sun <strong>' . date("g:i a", strtotime($this->location_data['hours_sun_open'])) . ' - ' .
+                date("g:i a", strtotime($this->location_data['hours_sun_close'])) . '</strong></li>';
         } else {
-            $rv .= '<li class="no-margin"> Sun Closed';
+            $rv .= '<li class="sl-hours"> Sun <strong>Closed</strong>';
         }
 
 
