@@ -45,6 +45,7 @@ class Bootstrap
         new \SimpleLocator\API\AddressShortcode;
         new \SimpleLocator\API\LongitudeShortcode;
         new \SimpleLocator\API\LatitudeShortcode;
+        new \SimpleLocator\API\TitleShortcode;
 
 		new \SimpleLocator\Post\Singular;
 		new \SimpleLocator\Integrations\IntegrationFactory;
